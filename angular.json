@@ -25,9 +25,18 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/datatables.net-dt/css/jquery.dataTables.min.css",
+              "node_modules/font-awesome/css/font-awesome.min.css",
+              "node_modules/datatables.net-dt/css/jquery.dataTables.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/datatables.net/js/jquery.dataTables.js",
+              "node_modules/datatables.net/js/jquery.dataTables.min.js",
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/datatables.net/js/jquery.dataTables.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -87,12 +96,22 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/datatables.net-dt/css/jquery.dataTables.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/font-awesome/css/font-awesome.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/datatables.net/js/jquery.dataTables.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "c8501e34-487a-4955-8a63-2e676c499fb6"
   }
 }

@@ -1,0 +1,8 @@
+<h1>
+    This is the parent component!  {{data}}
+  </h1>
+  <app-child2 [myMsg]="input" [myMsg2]="input2"  
+  (myOutput)="GetChildData($event)"
+  (myOutput2)="GetChildData2($event)"></app-child2>
+
+ 

@@ -1,0 +1,121 @@
+<section class="vh-100 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-12 col-lg-9 col-xl-7">
+        <div class="card shadow-2-strong card-registration" style="border-radius: 20px;">
+          <div class="card-body p-4 p-md-5">
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
+            <div class="form" [formGroup]="registrationForm">
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-group">
+                    <label class="form-label" for="firstName">First Name<span class="text-danger">*</span></label>
+                    <input formControlName="FIRST_NAME" type="text" id="firstName" class="form-control">
+                    <div class="class text-danger" *ngIf="i['FIRST_NAME'].errors && submitted">
+
+                      <span *ngIf="i['FIRST_NAME'].errors['required']">First Name is required</span>
+                      <span *ngIf="i['FIRST_NAME'].errors['minlength']">First name should be more than 3
+                        characters</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-group">
+                    <label class="form-label" for="lastName">Last Name<span class="text-danger">*</span></label>
+                    <input formControlName="LAST_NAME" type="text" id="lastName" class="form-control">
+                    <div class="class text-danger">
+                      <div *ngIf="i['LAST_NAME'].errors && submitted">
+                        <span *ngIf="i['LAST_NAME'].errors['required']">required</span>
+                        <span *ngIf="i['LAST_NAME'].errors['minlength']">required</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+                  <div class="form-outline datepicker w-100">
+                    <div class="form-group">
+                      <label for="birthdayDate" class="form-label">Birthday<span class="text-danger">*</span></label>
+                      <input formControlName="DOB" type="date" class="form-control" id="birthdayDate">
+                      <div class="class text-danger">
+                        <div *ngIf="i['DOB'].errors && submitted">
+                          <span *ngIf="i['DOB'].errors['required']">required</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-4 pb-2">
+                  <div class="form-outline">
+                    <div class="form-group">
+                      <label class="form-label" for="emailAddress">Email<span class="text-danger">*</span></label>
+                      <input formControlName="EMAIL_ID" type="text" id="emailAddress" class="form-control">
+                      <div class="class text-danger">
+                        <div *ngIf="i['EMAIL_ID'].errors && submitted">
+                          <span *ngIf="i['EMAIL_ID'].errors['required']">required</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4 pb-2">
+                  <div class="form-outline">
+                    <div class="form-group">
+                      <label class="form-label" for="phoneNumber">Phone Number<span class="text-danger">*</span></label>
+                      <input type="text" id="phoneNumber" formControlName="PHONE_NO" class="form-control">
+                      <div class="class text-danger">
+                        <div *ngIf="i['PHONE_NO'].errors && submitted">
+                          <span *ngIf="i['PHONE_NO'].errors['required']">required</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-4 pt-2 mb-4">
+                <!-- <input class="btn btn-primary btn-lg" type="submit" *ngIf="!isUpdate" (click)="AddRegistration()" value="Submit"> -->
+                <button *ngIf="!isUpdate" (click)="AddRegistration()" class="form-btn me-2">Save</button>
+                <button *ngIf="isUpdate" (click)="UpdateRegister()" class="form-btn me-2">update</button>
+                <button (click)="Reset()" class="form-btn me-2">Reset</button>
+                <!-- <button (mouseup)="buttonNameToggle = !buttonNameToggle; onMouseUp()">{{ buttonName }}</button> -->
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <table class="ratetable table-bordered" id="data-table-config">
+      <thead>
+        <tr>
+          <th width="10%">No</th>
+          <th widht="20%">First Name</th>
+          <th width="20%">Last Name</th>
+          <th width="15%">Birthday</th>
+          <th width="15%">EMAIL</th>
+          <th width="15%">PHONE NO</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of registrationList let i=index ">
+          <td>{{i+1}}</td>
+          <td widht="20%">{{item.firsT_NAME}}</td>
+          <td widht="20%">{{item.lasT_NAME}}</td>
+          <td widht="15%">{{item.dob | date}}</td>
+          <td widht="15%">{{item.emaiL_ID}}</td>
+          <td widht="15%">{{item.phonE_NO}}</td>
+          <td width="5%">
+            <i class="fa fa-pencil mx-2 pointer text-success" (click)="GetRegistrationDetails(i)"></i>
+            <i class="fa fa-trash ms-2 pointer text-danger" (click)="DeleteRegistration(item.id)"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</section>

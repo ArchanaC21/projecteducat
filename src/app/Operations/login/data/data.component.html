@@ -1,0 +1,170 @@
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                    <div class="card-body p-4 p-md-5">
+                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5"> Form</h3>
+                        <div class="form" [formGroup]="dataform">
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-group">
+                                        <label class="form-label" for="firstName">First Name<span
+                                                class="text-danger">*</span></label>
+                                        <input formControlName="FIRST_NAME" type="text" id="firstName"
+                                            class="form-control">
+                                        <div class="class text-danger">
+                                            <div *ngIf="f['FIRST_NAME'].errors && submitted">
+                                                <span *ngIf="f['FIRST_NAME'].errors['required']">required</span>
+                                                <!-- <span *ngIf="f['FIRST_NAME'].errors['minlength']">required</span> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-group">
+                                        <label class="form-label" for="lastName">Last Name<span
+                                                class="text-danger">*</span></label>
+                                        <input formControlName="LAST_NAME" type="text" id="lastName"
+                                            class="form-control">
+                                        <div class="class text-danger">
+                                            <div *ngIf="f['LAST_NAME'].errors && submitted">
+                                                <span *ngIf="f['LAST_NAME'].errors['required']">required</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                 <div class="col-md-6 mb-4 d-flex align-items-center">
+                                    <div class="form-outline datepicker w-100">
+                                        <div class="form-group">
+                                            <label for="birthdayDate" class="form-label">Birthday</label>
+                                            <input formControlName="DOB" type="date" class="form-control"
+                                                id="birthdayDate">
+                                            <div class="class text-danger">
+                                                <span *ngIf="f['DOB'].errors && submitted">required</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                            
+                                 <div class="col-md-6 mb-4">
+                                    <div class="form-group">
+                                        <label class="form-label" for="Country">Country</label>
+                                        <select class="form-control" formControlName="COUNTRY"
+                                            (change)="getState($event)">
+                                            <option value="">Select Country</option>
+                                            <option *ngFor="let item of Country" value={{item.id}}>{{item.name}}
+                                            </option>
+                                        </select>
+                                        <div class="class text-danger">
+                                            <span *ngIf="f['COUNTRY'].errors && submitted">required</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-group">
+                                        <label for="State" class="form-label">State</label>
+                                        <select class="form-control" formControlName="STATE" (change)="getCity($event)">
+                                            <option value="">Select State</option>
+                                            <option *ngFor="let item of Statelist" value={{item.id}}>{{item.name}}
+                                            </option>
+                                        </select>
+                                        <div class="class text-danger">
+                                            <span *ngIf="f['STATE'].errors && submitted">required</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-group">
+                                        <label for="City" class="form-label">City</label>
+                                        <select class="form-control" formControlName="CITY">
+                                            <option value="">Select City</option>
+                                            <option *ngFor="let item of Citylist" value={{item.id}}>{{item.name}}
+                                            </option>
+                                        </select>
+                                        <div class="class text-danger">
+                                            <span *ngIf="f['CITY'].errors && submitted">required</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                            <div></div>
+                            <div class="row">
+                                <div class="col-md-6 mb-4 pb-2">
+                                    <div class="form-outline">
+                                        <div class="form-group">
+                                            <label class="form-label" for="emailAddress">Email<span
+                                                    class="text-danger">*</span></label>
+                                            <input formControlName="EMAIL" type="text" id="EMAIL" class="form-control">
+                                            <div class="class text-danger">
+                                                <span *ngIf="f['EMAIL'].errors && submitted">required</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4 pb-2">
+                                    <div class="form-outline">
+                                        <div class="form-group">
+                                            <label class="form-label" for="MOBI">MOBI<span
+                                                    class="text-danger">*</span></label>
+                                            <input type="tel" id="mobi" formControlName="MOBI" class="form-control">
+                                            <div class="class text-danger">
+                                                <span *ngIf="f['MOBI'].errors && submitted">required</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4  mb-4">
+                                <button *ngIf="!isUpdate" (click)="addForm()" class="form-btn me-2">Save</button>
+                                <button *ngIf="isUpdate"  (click)="updateForm()"class="form-btn me-2">update</button>
+                                <button (click)="Reset()" class="form-btn me-2">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="mt-4 mb-4">
+                <table class="ratetable table-bordered" id="data-table-config">
+                    <thead>
+                        <tr>
+                            <th width="1%">No</th>
+                            <th widht="15%">First Name</th>
+                            <th width="15%">Last Name</th>
+                            <th width="15%">Birthday</th> 
+                             <th width="15%">Country</th>
+                            <th width="15%">State</th>
+                            <th width="15%">City</th>
+                            <th width="15%">Email</th>
+                            <th width="15%">MOBI</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of datalist; let i = index">
+                            <td width="1%">{{i+1}}</td>
+                            <td widht="15%">{{item.firsT_NAME}}</td>
+                            <td widht="20%">{{item.lasT_NAME}}</td>
+                            <td widht="15%">{{item.dob | date:'mediumDate'}}</td> 
+                             <td widht="15%">{{item.country}}</td>
+                            <td widht="15%">{{item.state}}</td>
+                            <td widht="15%">{{item.city}}</td>
+                            <td widht="15%">{{item.email}}</td>
+                            <td widht="15%">{{item.mobi}}</td>
+                            <td>
+                                <i class="fa fa-pencil mx-2 pointer text-success" (click)="GetFormDetails(i)"></i>
+                                <i class="fa fa-trash ms-2 pointer text-danger" (click)="DeleteForm(item.id)"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</section>

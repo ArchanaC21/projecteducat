@@ -1,0 +1,87 @@
+/* body {
+    margin: 0;
+    padding: 0;
+    background-color: hsl(186, 32%, 88%);
+    height: 100vh;
+  }
+  #login .container #login-row #login-column #login-box {
+    margin-top: 120px;
+    max-width: 600px;
+    height: 320px;
+    border: 1px solid #9C9C9C;
+    background-color: #EAEAEA;
+  }
+  #login .container #login-row #login-column #login-box #login-form {
+    padding: 20px;
+  }
+  #login .container #login-row #login-column #login-box #login-form #register-link {
+    margin-top: -85px;
+  }
+
+  .gradient-custom {
+    /* fallback for old browsers */
+    /* background: #e8e5e9; */
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    /* background: -webkit-linear-gradient(to bottom right, rgb(227, 224, 227), #f7e9eb); */
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    /* background: linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgb(229, 216, 218))
+    } */
+    
+    /* .card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+    }
+    .card-registration .select-arrow {
+    top: 13px;
+    } */
+
+    /* #preloader{
+      position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #000;
+        z-index: 99999;
+        height: 100%;
+        width: 100%;
+        overflow: hidden !important;
+      -webkit-transition: none !important;
+      -moz-transition: none !important;
+      -ms-transition: none !important;
+      -o-transition: none !important;
+      transition:none !important;
+    }
+    .preloader_img{
+        background: url(img/preloader.gif) no-repeat scroll center center;
+        display: block;
+        height: 100px;
+        width: 100px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 999999;
+        margin-left: -50px;
+        margin-top: -50px;
+    
+    } */ 
+
+    .divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+.h-custom {
+height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+.h-custom {
+height: 100%;
+}
+}
